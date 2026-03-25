@@ -51,7 +51,7 @@ df.drop(columns=['job_posting_month','job_posting_year'],inplace=True)
 print(df.head(5))
 
 ###### Handling the missing values #######
-# print(df.isnull().sum()) # there are no missing vlaues i this data 
+print(df.isnull().sum()) # there are no missing vlaues i this data 
 
 #### feature scaling #####
 print(f"Max years of experience : {df.years_experience.max()}")
@@ -63,10 +63,10 @@ print("\n")
 ###### this will not work becoz, we have to do the featrue scaling aprt which means converting the categorical data to numerical data but here years_experience is 
 ###### already a numerical data so it will reaturn the same as years_ experience in years_experience_label #########
 
-# labels=preprocessing.LabelEncoder()
-# df['years_experience_label']=labels.fit_transform(df.years_experience.values)
-# print(df.head(5))
-# print(df.years_experience)
+labels=preprocessing.LabelEncoder()
+df['years_experience_label']=labels.fit_transform(df.years_experience.values)
+print(df.head(5))
+print(df.years_experience)
 
 ###### this is encoding  ie converting the categorical data to numberical data ##########
 labels=preprocessing.LabelEncoder()
@@ -89,9 +89,9 @@ print(df.company_industry.value_counts())
 
 
 ####### this is scaling ie converting the numerical data to the range in numerical form itself #######
-# scaler=StandardScaler()
-# df['Salary_scaled']=scaler.fit_transform(df[['salary']])
-# print(df.head(5))
+scaler=StandardScaler()
+df['Salary_scaled']=scaler.fit_transform(df[['salary']])
+print(df.head(5))
 
 
 
