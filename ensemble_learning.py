@@ -1,5 +1,3 @@
-###### Bagging v/s Random Forest #######
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -20,7 +18,7 @@ print(df.shape)
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
 
-###### model 1 #######
+# ===================== MODEL 1: DECISION TREE =====================
 
 dt_model=DecisionTreeClassifier(max_depth=4,random_state=42)
 dt_model.fit(X_train,y_train)
@@ -29,21 +27,21 @@ print("======== TEST DATA ACCURACY =========")
 print("\n")
 print("Decison tree Accuracy : ",round(accuracy_score(y_test,y_pred_dt)*100,2),"%")
 
-###### model 2 #######
+# ===================== MODEL 2: BAGGING =====================
 
 bag=BaggingClassifier(estimator=DecisionTreeClassifier(),n_estimators=500,max_samples=0.5,bootstrap=True,random_state=42)
 bag.fit(X_train,y_train)
 y_pred_bc=bag.predict(X_test)
 print("Bagged Decison tree Accuracy : ",round(accuracy_score(y_test,y_pred_bc)*100,2),"%")
 
-#### model 3 #######
+# ===================== MODEL 3: RANDOM FOREST =====================
 
 rf=RandomForestClassifier(max_depth=5,max_features=2,n_estimators=500,random_state=42)
 rf.fit(X_train,y_train)
 y_pred_rf=rf.predict(X_test)
 print("Random Forest Decison tree Accuracy : ",round(accuracy_score(y_test,y_pred_rf)*100,2),"%")
 
-##### model 4 ######
+# ===================== MODEL 4: SVM + BAGGING =====================
 
 svm_bag=BaggingClassifier(estimator=SVC(),n_estimators=500,max_samples=0.25,bootstrap=True,random_state=42)
 svm_bag.fit(X_train,y_train)
@@ -57,15 +55,11 @@ print("Bagging train accuracy:", bag.score(X_train, y_train))
 print("Random Forest train accuracy:", rf.score(X_train, y_train))
 print("SVM Bagged train accuracy:", svm_bag.score(X_train, y_train))
 
+# ===================== CONCLUSION =====================
 
-
-
-# Real difference (important)
-# In Bagging, max_features (if used) applies to the whole tree
-# In Random Forest, max_features is applied at every split
-# This is why Random Forest shows more mixed features inside one tree
-# Bagging → selects features once per tree
-# Random Forest → selects features again and again at each split
-
+print("\nConclusion:")
+print("Ensemble models (Bagging & Random Forest) performed better than a single Decision Tree, also making it the best-performing model for this dataset.")
+print("Bagged SVM achieved the highest accuracy in testing dataset , showing better generalization on this dataset.")
+print("Ensemble models outperformed the single Decision Tree, with bagged SVM giving the best accuracy and overall most reliable performance. ")
 
 
