@@ -5,7 +5,6 @@ their impact on model performance.
 
 >> Objective
 The main goal of this project is to:
-
 -> Understand how ensemble methods improve accuracy
 -> Compare single models vs multiple models
 -> Analyze overfitting and generalization
@@ -30,13 +29,13 @@ S4) upport Vector Machine with Bagging
 5) Compare performance
 
 >> Results
-Test Accuracy:-
+* Test Accuracy:-
 Decision Tree: 93.7%
 Bagging (Decision Tree): 97.55%
 Random Forest: 96.6%
 Bagged SVM: 98.65%
 
-Training Accuracy:- 
+* Training Accuracy:- 
 Decision Tree: 94.6%
 Bagging: 99.07%
 Random Forest: 97.08%
@@ -48,18 +47,16 @@ Bagged SVM: 98.42%
 3) Bagging reduces variance by combining multiple models
 4) Bagged SVM achieved the best performance on this dataset
    
-⚠️ Important Learning
+>> Important Learning
+1) High training accuracy like 100% does not always mean a good model.
+2) The main focus should be on test accuracy and generalization.
 
-High training accuracy like 100% does not always mean a good model.
-The main focus should be on test accuracy and generalization.
-
-🛠️ Technologies Used
-Python
-NumPy
-Pandas
-Scikit-learn
+>> Technologies Used
+1) Python
+2) NumPy
+3) Pandas
+4) Scikit-learn
 
 >> Conclusion
-
 Ensemble learning methods significantly improved model performance compared to a single model. Among all, Bagged SVM performed the best, 
 showing that combining models can lead to better and more reliable predictions.
